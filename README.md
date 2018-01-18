@@ -1,5 +1,7 @@
-[Android Ice Cold Project](http://aicp-rom.com)
+IceLegacy
 ====================================
+
+Unofficial fork of [Android Ice Cold Project](http://aicp-rom.com), for n7.1 builds.
 
 
 Download the Source
@@ -12,7 +14,7 @@ Initializing Repository
 
 Repo initialization:
 
-    $ repo init -u https://github.com/AICP/platform_manifest.git -b n7.1
+    $ repo init -u https://github.com/IceLagacy/platform_manifest.git -b n7.1
 
 
 sync repo :
