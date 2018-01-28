@@ -1,66 +1,67 @@
-IceLegacy
-====================================
+# IceLegacy
 
 Unofficial fork of [Android Ice Cold Project](http://aicp-rom.com), for n7.1 builds.
 
 Include latest LOS (cm-14.1) patches.
 
-
-Download the Source
-===================
+# Download the Source
 
 Please read the [AOSP building instructions](http://source.android.com/source/index.html) before proceeding.
 
-Initializing Repository
------------------------
+## Initializing Repository
 
 Repo initialization:
 
-    $ repo init -u https://github.com/IceLegacy/platform_manifest.git -b n7.1
-
+```
+repo init -u https://github.com/IceLegacy/platform_manifest.git -b n7.1
+```
 
 sync repo :
 
-    $ repo sync
+```
+repo sync
+```
 
-Some info on how to customize your sync:
+Some info on how to customize your sync:  
 
-  -f, --force-broken    continue sync even if a project fails to sync
-  --force-sync          overwrite an existing git directory if it needs to
-                        point to a different object directory. WARNING: this
-                        may cause loss of data
-  -l, --local-only      only update working tree, don't fetch
-  -n, --network-only    fetch only, don't update working tree
-  -c, --current-branch  fetch only current branch from server
-  -j JOBS, --jobs=JOBS  projects to fetch simultaneously (default 4)
-  --no-clone-bundle     disable use of /clone.bundle on HTTP/HTTPS
-  --no-tags             don't fetch tags
+| option | description |
+|:---|:---|
+| `-f`, `--force-broken` | continue sync even if a project fails to sync |
+| `--force-sync` | overwrite an existing git directory if it needs to point to a different object directory. WARNING: this may cause loss of data |
+| `-l`, `--local-only` | only update working tree, don't fetch |
+| `-n`, `--network-only` | fetch only, don't update working tree |
+| `-c`, `--current-branch` | fetch only current branch from server |
+| `-j JOBS`, `--jobs=JOBS` | projects to fetch simultaneously (default 4) |
+| `--no-clone-bundle` | disable use of `/clone.bundle` on HTTP/HTTPS |
+| `--no-tags` | don't fetch tags |
 
-Smallest/fastest sync:
-    $ repo sync --no-tags --no-clone-bundle
-    we already define -c in our default.xml, so no need to add it
+Smallest/fastest sync:  
 
-***
+```
+repo sync --no-tags --no-clone-bundle  
+```
 
-Building
---------
+we already define `-c` in our `default.xml`, so no need to add it
+
+# Building
 
 After the sync is finished, please read the [instructions from the Android site](http://s.android.com/source/building.html) on how to build.
 
-    . build/envsetup.sh
-    brunch
-
+```
+. build/envsetup.sh
+brunch
+```
 
 You can also build (and see how long it took) for specific devices like this:
 
-    . build/envsetup.sh
-    time brunch angler
+```
+. build/envsetup.sh
+time brunch angler
+```
 
 Remember to `make clobber` every now and then!
 
-
-Optional After Successful Build
---------------------------------
+## Optional After Successful Build
 
 After you get a working build, and if you would like to share your build on XDA (Regular Unofficial Builds), then please use the following Template to create
 an XDA thread. Note that the template is a guideline of sort. You may make your own changes to it (esp please do in the download link) but try
@@ -68,41 +69,47 @@ and make your thread as close to this one as possible. This is to avoid clutteri
 
 Link : https://raw.githubusercontent.com/AICP/vendor_aicp/n7.1/xda_template/xda_thread-template.txt
 
+# Uploading to AICP Gerrit
 
-Uploading to AICP Gerrit
----------------
-
-1st You must have local ssh keys on your computer if you do not here is a [guide](http://goo.gl/86CfDP) to generate them.
-
-2nd Make an account on [Gerrit](http://gerrit.aicp-rom.com) login only using GoogleAuth2
-
-3rd Add your ssh public key to your account
-
-4th Make your changes and commit them
-
-5th use the following command to push your commit to gerrit
+1. You must have local ssh keys on your computer if you do not here is a [guide](http://goo.gl/86CfDP) to generate them.
+2. Make an account on [Gerrit](http://gerrit.aicp-rom.com) login only using GoogleAuth2
+3. Add your ssh public key to your account
+4. Make your changes and commit them
+5. use the following command to push your commit to gerrit
 
 (From root android directory)
-    . build/envsetup.sh
-    repo start n7.1 path/to/project
-    (Go to repo you are patching, make your changes and commit)
-    repo upload .
-For more help on using this tool, use this command: repo help upload
+
+```
+. build/envsetup.sh
+repo start n7.1 path/to/project
+```
+
+(Go to repo you are patching, make your changes and commit)
+
+```
+repo upload .
+```
+
+For more help on using this tool, use this command: `repo help upload`
 
 You can also use:
 
-    git push ssh://USERNAME@gerrit.aicp-rom.com:29418/AICP/REPO_NAME HEAD:refs/for/branch-name
+```
+git push ssh://USERNAME@gerrit.aicp-rom.com:29418/AICP/REPO_NAME HEAD:refs/for/branch-name
+```
 
 Example:
 
-    git push ssh://mosimchah@gerrit.aicp-rom.com:29418/AICP/platform_manifest HEAD:refs/for/n7.1
+```
+git push ssh://mosimchah@gerrit.aicp-rom.com:29418/AICP/platform_manifest HEAD:refs/for/n7.1
+```
 
+6. You will get an error about a missing Change-ID in that error it will show you a suggested commit message copy the change id
+7. Do the following command and add the change id to the end of the commit message
 
-6th You will get an error about a missing Change-ID in that error it will show you a suggested commit message copy the change id
-
-7th Do the following command and add the change id to the end of the commit message
-
-    git commit --amend
+```
+git commit --amend
+```
 
 Here is an example of what the commit message should look like:
 
@@ -110,11 +117,10 @@ Here is an example of what the commit message should look like:
 >
 > Change-Id: I93949d30d732de35222d9d78d1f94e33e4bffc47
 
-8th use the same command to push to gerrit and if you did everything properly it will be up on gerrit
+8. use the same command to push to gerrit and if you did everything properly it will be up on gerrit
 
+## Maintain Authorship
 
-
-## Maintain Authorship ##
 Always make sure if you submit a patch/fix that you maintain authorship.
 This is very important to not only us but to the entire open source community. It's what keeps it going and encourages more developers to contribute their work.
 
@@ -123,31 +129,41 @@ This task is very easy and is usually done after you commit a patch/fix locally.
 
 i.e - Once you type in "git commit -a" the commit message and you have saved it, type in the following:
 
-```bash
+```
 git commit --amend --author "Author <email@address.com>"
 ```
 
 So it should look like this once you get all author's information:
 
-```bash
+```
 git commit --amend --author "John Doe <john.doe@gmail.com>"
 ```
+
 Note: If you're a Kanger, Alex Cruz ( @Mazda-- ) will hunt you down, burn you at the stake, and eat you alive!
 
-Picking changes from our gerrit
--------------------------------
+# Picking changes from our gerrit
 
 (From root android directory)
-    . build/envsetup.sh
+
+```
+. build/envsetup.sh
+```
 
 to pick every change from a topic:
 
-    repopick -t topic
+```
+repopick -t topic
+```
 
 to pick a specific change
 
-    repopick commit-number
+
+```
+repopick commit-number
+```
 
 example, to pick this commit: http://gerrit.aicp-rom.com/#/c/36939/
 
-    repopick 36939
+```
+repopick 36939
+```
