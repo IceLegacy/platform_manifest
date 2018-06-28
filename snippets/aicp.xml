@@ -4,6 +4,7 @@
   <!-- IceLegacy forks -->
   <project path="frameworks/av" name="IceLegacy/frameworks_av" groups="pdk" remote="aicp" />
   <project path="frameworks/base" name="IceLegacy/frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="aicp" />
+  <project path="frameworks/native" name="IceLegacy/frameworks_native" groups="pdk" remote="aicp" />
   <project path="packages/apps/CMParts" name="IceLegacy/packages_apps_CMParts" remote="aicp" />
   <project path="packages/apps/PhoneCommon" name="IceLegacy/packages_apps_PhoneCommon" groups="pdk-cw-fs,pdk-fs" remote="aicp" />
   <project path="packages/apps/Settings" name="IceLegacy/packages_apps_Settings" groups="pdk-fs" remote="aicp" />
@@ -16,7 +17,6 @@
   <!-- AICP custom -->
   <project path="device/qcom/sepolicy" name="AICP/device_qcom_sepolicy" remote="aicp" />
   <project path="external/DUtils" name="AICP/external_DUtils" remote="aicp" />
-  <project path="frameworks/native" name="AICP/frameworks_native" groups="pdk" remote="aicp" />
   <project path="frameworks/rs" name="AICP/frameworks_rs" groups="pdk" remote="aicp" />
   <project path="packages/apps/AICP_OTA" name="AICP/packages_apps_AICP_OTA" remote="aicp" />
   <project path="packages/apps/AicpExtras" name="AICP/packages_apps_AicpExtras" remote="aicp" />
